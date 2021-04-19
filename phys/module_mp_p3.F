@@ -2641,7 +2641,8 @@ END subroutine p3_init
                 dum2 = dum1*piov6*900.*(10.e-6)**3  ! assume 10 micron splinters
                 qrcol(iice) = qrcol(iice)-dum2      ! subtract splintering from rime mass transfer
                 if (qrcol(iice) .lt. 0.) then
-                   dum2 = qrcol(iice)
+                   !dum2 = qrcol(iice)
+                   dum2 = qrcol(iice) + dum2 ! Note: qrcol(iice) has been changed above. HYJ
                    qrcol(iice) = 0.
                 endif
 
