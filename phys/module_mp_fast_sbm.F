@@ -4377,7 +4377,7 @@ enddo
             DO k = kts,kte
 
               ES1N = AA1_MY*EXP(-BB1_MY/T_NEW(I,K,J))
-              EW1N = QV(I,K,J)*pcgs(I,K,J)/(0.622+0.378*QV(I,K,J))
+              EW1N = QV(I,K,J)*pcgs(I,K,J)/(0.622+0.378*QV(I,K,J)) ! If QV is mixing ratio: EW1N = QV(I,K,J)*pcgs(I,K,J)/(0.622+QV(I,K,J)). Check!!! Yongjie Huang.
               SUP_WATER = EW1N/ES1N - 1.0
               if(k.lt.kte)then
                   w_stag_my 	= 50.*(w(i,k,j)+w(i,k+1,j))
